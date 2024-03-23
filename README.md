@@ -17,6 +17,7 @@ The Block Cipher Modes of Operation belongs to the group of symmetric cryptograp
 They can be used to encrypt data with a key and, depending on the mode, also with other parameters.
 
 <h3>Example Implementation </h3>
+
 ```python
 #Encrpytion using CBC
 from encryption_modes import cbc_encryption as cbc
