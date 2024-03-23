@@ -1,0 +1,10 @@
+#-----Automatiacly generated files from VsCode or Jetbrains PyCharm IDE-----#
+/Essentials/.idea/
+/Essentials/__pycache__/
+/__pycache__/
+/.idea/
+
+#-----Manually added files to ignore-----#
+# ↓ Used for test implementation only ↓ #
+/main.py
+/UnitTests/

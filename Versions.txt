@@ -1,0 +1,6 @@
+Version 1.0.0:
+- Basic encryption and decryption featuring the modes:
+    - CBC
+    - CTR
+    - ECB
+  , as well as the necessary dependencies of the methods
