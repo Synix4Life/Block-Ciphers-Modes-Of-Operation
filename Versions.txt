@@ -4,3 +4,8 @@ Version 1.0.0:
     - CTR
     - ECB
   , as well as the necessary dependencies of the methods
+
+Version 1.1.0:
+    - Docstring fix
+    - Added direct ASCII output from the methods
+    - UPLOADED TESTS

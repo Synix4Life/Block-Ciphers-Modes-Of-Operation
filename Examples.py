@@ -11,9 +11,7 @@ print(
 )
 
 print(
-    hex_to_ascii(
-        cbc("Now, lets try CBC Encryption and convert the result to ASCII", "Remember the IV", 11, 15)
-    )
+    cbc("Now, lets try CBC Encryption and convert the result to ASCII", "Remember the IV", 11, 15, True)
 )
 
 print(
