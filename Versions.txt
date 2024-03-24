@@ -5,7 +5,10 @@ Version 1.0.0:
     - ECB
   , as well as the necessary dependencies of the methods
 
-Version 1.1.0:
-    - Docstring fix
-    - Added direct ASCII output from the methods
-    - UPLOADED TESTS
+	Version 1.1.0:
+    	- Docstring fix
+    	- Added direct ASCII output from the methods
+    	- UPLOADED TESTS
+
+		Version 1.1.1:
+		-__pycache__ added to .gitignore

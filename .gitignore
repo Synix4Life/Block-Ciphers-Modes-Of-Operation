@@ -2,6 +2,8 @@
 /Essentials/.idea/
 /Essentials/__pycache__/
 /__pycache__/
+/UnitTest/__pycache__/
+/UnitTest/Essentials/__pycache__/
 /.idea/
 
 #-----Manually added files to ignore-----#
