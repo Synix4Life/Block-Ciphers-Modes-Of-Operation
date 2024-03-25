@@ -1,3 +1,4 @@
+# -------------------- IMPORTS -------------------- #
 import Essentials.converter as converter
 from Essentials.xoring import xor
 import Essentials.iv_actions as iv_actions
@@ -5,6 +6,7 @@ import Essentials.miscellaneous as misc
 import math
 
 
+# -------------------- METHODS -------------------- #
 def cbc_encryption(plaintext: str, key: str, iv: int, block_size: int = 8, return_as_ascii: bool = False, is_binary_step: bool = False) -> str:
     """
     The method to convert a plaintext into an CBC-encrypted ciphertext in hex, using a given key and block_size
@@ -20,8 +22,8 @@ def cbc_encryption(plaintext: str, key: str, iv: int, block_size: int = 8, retur
     """
     if is_binary_step:
         block_size = block_size / 8
-    if not block_size == math.floor(block_size):
-        raise ValueError("Block_size should be dividable by 8")
+        if not block_size == math.floor(block_size):
+            raise ValueError("Block_size should be dividable by 8")
     if not len(key) == block_size:
         raise AttributeError(f"Key should have block size!\nExpected block size {len(key)}, but got {block_size}."
                              f"\nDid you forget that there is an IV in CBC Mode :-)? \n"
@@ -60,8 +62,8 @@ def ctr_encryption(plaintext: str, key: str, iv: int, block_size: int = 8, retur
     """
     if is_binary_step:
         block_size = block_size / 8
-    if not block_size == math.floor(block_size):
-        raise ValueError("Block_size should be dividable by 8")
+        if not block_size == math.floor(block_size):
+            raise ValueError("Block_size should be dividable by 8")
     if not len(key) == block_size:
         raise AttributeError(f"Key should have block size!\nExpected block size {len(key)}, but got {block_size}."
                              f"\n Did you forget that there is an IV in CTR Mode :-)? \n"
@@ -97,8 +99,8 @@ def ecb_encryption(plaintext: str, key: str, block_size: int = 8, return_as_asci
     """
     if is_binary_step:
         block_size = block_size / 8
-    if not block_size == math.floor(block_size):
-        raise ValueError("Block_size should be dividable by 8")
+        if not block_size == math.floor(block_size):
+            raise ValueError("Block_size should be dividable by 8")
     if not len(key) == block_size:
         raise AttributeError(f"Key should have block size!\nExpected block size {len(key)}, but got {block_size}."
                              f"\nTry changing the input block_size or set is_binary_step to true.")

@@ -1,11 +1,12 @@
+# -------------------- IMPORTS -------------------- #
 import unittest
-
 from Essentials.miscellaneous import *
 
 
-# ------------------------- PASSED -------------------------#
+# ######################### PASSED ######################### #
 
 
+# -------------------- METHODS -------------------- #
 class TestMiscellaneous(unittest.TestCase):
     # ------------ Essentials.miscellaneous.leading_zeros ------------ #
     def test_leading_zeros_1(self):

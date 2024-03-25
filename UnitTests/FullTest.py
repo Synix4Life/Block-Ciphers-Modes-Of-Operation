@@ -1,12 +1,13 @@
+# -------------------- IMPORTS -------------------- #
 import unittest
-
 import decryption_modes
 import encryption_modes
 
 
-# ------------------------- PASSED -------------------------#
+# ######################### PASSED ######################### #
 
 
+# -------------------- METHODS -------------------- #
 class FullTest(unittest.TestCase):
     def test_full_ecb(self):
         self.assertEqual("This is a text, couldn't guess that...", decryption_modes.ecb_decryption(

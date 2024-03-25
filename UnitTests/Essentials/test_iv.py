@@ -1,11 +1,12 @@
+# -------------------- IMPORTS -------------------- #
 import unittest
-
 from Essentials.iv_actions import *
 
 
-# ------------------------- PASSED -------------------------#
+# ######################### PASSED ######################### #
 
 
+# -------------------- METHODS -------------------- #
 class TestIV(unittest.TestCase):
     # ------------ Essentials.iv_actions.extend_iv_by_one ------------ #
     def test_extend_iv_1(self):

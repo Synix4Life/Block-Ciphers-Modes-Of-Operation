@@ -1,12 +1,13 @@
+# -------------------- IMPORTS -------------------- #
 import unittest
-
 from decryption_modes import *
 from ..Essentials.converter import hex_to_ascii
 
 
-# ------------------------- PASSED -------------------------#
+# ######################### PASSED ######################### #
 
 
+# -------------------- METHODS -------------------- #
 class TestDecryption(unittest.TestCase):
     # -------------------- ECB -------------------- #
     def test_ECB_1(self):

@@ -37,6 +37,24 @@ def hex_to_binary(text: str) -> str:
         if text[:2] == "0b":
             text = text[2:]
         binary_str = bin(int(text, 16))[2:]
-        return "0" * (len(text)*4-len(binary_str)) + binary_str
+        return "0" * (len(text) * 4 - len(binary_str)) + binary_str
     except ValueError:
         return "Invalid hexadecimal string"
+
+
+def binary_to_ascii(text: str) -> str:
+    """
+    Method to convert the binary string to an ASCII string
+    :param text: Binary string
+    :return: The ASCII string
+    """
+    return hex_to_ascii(binary_to_hex(text))
+
+
+def ascii_to_hex(text: str) -> str:
+    """
+    Method to convert the ASCII string to hexadecimal string
+    :param text: ASCII string
+    :return: The hexadecimal string
+    """
+    return binary_to_hex(ascii_to_binary(text))

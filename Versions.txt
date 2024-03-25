@@ -6,9 +6,15 @@ Version 1.0.0:
   , as well as the necessary dependencies of the methods
 
 	Version 1.1.0:
-    	- Docstring fix
-    	- Added direct ASCII output from the methods
-    	- UPLOADED TESTS
+    - Docstring fix
+    - Added direct ASCII output from the methods
+    - UPLOADED TESTS
 
 		Version 1.1.1:
-		-__pycache__ added to .gitignore
+		- __pycache__ added to .gitignore
+
+		Version 1.1.2:
+		- File design (naming Imports and Methods)
+		- README.txt example implementation extension
+		- Testing Encryption Exceptions
+		- Small fixes

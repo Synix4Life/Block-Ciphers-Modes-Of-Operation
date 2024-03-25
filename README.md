@@ -2,8 +2,9 @@
 
 ---
 
-![Version](https://img.shields.io/badge/Version-1.1.1-darkblue?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.1.2-darkblue?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-darkblue?style=flat-square)
+![Tests](https://img.shields.io/badge/Tests-Passed-darkblue?style=flat-square)
 ![Language](https://img.shields.io/badge/Python-darkblue?style=flat-square&logo=python&logoColor=yellow)
 
 <i>Please read <span style="color: red;">Further Informations</span> before using the provided code!</i>
@@ -19,11 +20,27 @@ They can be used to encrypt data with a key and, depending on the mode, also wit
 <h3>Example Implementation </h3>
 
 ```python
-#Encrpytion using CBC
-from encryption_modes import cbc_encryption as cbc
+#Encrpytion and decryption using CBC
+from encryption_modes import cbc_encryption
+from decryption_modes import cbc_decryption
+from Essentials.converter import hex_to_ascii
 
-result = cbc("Plaintext", "Key", 0, 3, False)
-print(result)
+encrypted = cbc_encryption("Plaintext", "Key", 0, 3)
+
+print(encrypted)
+print(hex_to_ascii(encrypted))
+
+decrypted = cbc_decryption(
+    hex_to_ascii(encrypted), "Key", 0, 3, True
+)
+
+print(decrypted)
+```
+```
+-------------- CONSOLE OUTPUT ---------------
+    >> 1B0918390215171F18
+    >> 	9
+    >> Plaintext
 ```
 
 ---

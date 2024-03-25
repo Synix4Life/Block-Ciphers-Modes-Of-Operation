@@ -7,5 +7,3 @@
 /.idea/
 
 #-----Manually added files to ignore-----#
-# ↓ Used for test implementation only ↓ #
-/main.py
