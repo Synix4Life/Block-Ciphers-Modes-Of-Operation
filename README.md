@@ -2,7 +2,7 @@
 
 ---
 
-![Version](https://img.shields.io/badge/Version-1.1.2-darkblue?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.1.3-darkblue?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-darkblue?style=flat-square)
 ![Tests](https://img.shields.io/badge/Tests-Passed-darkblue?style=flat-square)
 ![Language](https://img.shields.io/badge/Python-darkblue?style=flat-square&logo=python&logoColor=yellow)
@@ -36,6 +36,7 @@ decrypted = cbc_decryption(
 
 print(decrypted)
 ```
+
 ```
 -------------- CONSOLE OUTPUT ---------------
     >> 1B0918390215171F18
