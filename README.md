@@ -2,10 +2,10 @@
 
 ---
 
-![Version](https://img.shields.io/badge/Version-1.1.4-darkblue?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-darkblue?style=flat-square)
-![Tests](https://img.shields.io/badge/Tests-Passed-darkblue?style=flat-square)
-![Language](https://img.shields.io/badge/Python-darkblue?style=flat-square&logo=python&logoColor=yellow)
+![Version](https://img.shields.io/badge/Version-1.1.5-blue?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
+![Tests](https://img.shields.io/badge/Tests-Passed-blue?style=flat-square)
+![Language](https://img.shields.io/badge/Python-blue?style=flat-square&logo=python&logoColor=yellow)
 
 <i>Please read <span style="color: red;">Further Informations</span> before using the provided code!</i>
 
@@ -72,3 +72,45 @@ Please use other encryption librarys with proven correctness for encrypting your
 
 <h3>Miscellaneous</h3>
 If you have any other modes you want to be implemented or there are any errors, please feel free to fix them yourself or contact me! :fire:
+
+---
+
+## Changelog
+
+- $\textsf{\color{aqua}Version 1.0.0}$
+
+    - Basic encryption and decryption featuring the modes:
+        - CBC
+        - CTR
+        - ECB
+  
+    - Necessary dependencies
+
+    - $\textsf{\color{aqua}Version 1.1.0}$
+
+        - Docstring fix
+        - Added direct ASCII output from the methods
+        - UPLOADED TESTS
+ 
+        - $\textsf{\color{aqua}Version 1.1.1}$
+    
+            - \_\_pycache\_\_ added to .gitignore
+
+        - $\textsf{\color{aqua}Version 1.1.2}$
+
+            - File design (naming Imports and Methods)
+            - README.txt example implementation extension
+            - Testing Encryption Exceptions
+            - Small fixes
+            
+        - $\textsf{\color{aqua}Version 1.1.3}$
+
+            - File structure system changed
+
+        - $\textsf{\color{aqua}Version 1.1.4}$
+        
+            - Added Example Outputs
+
+        - $\textsf{\color{aqua}Version 1.1.5}$
+        
+            - Changelog to README
