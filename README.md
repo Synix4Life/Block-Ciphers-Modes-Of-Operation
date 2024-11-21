@@ -2,9 +2,9 @@
 
 ---
 
-![Version](https://img.shields.io/badge/Version-1.1.5-blue?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.1.6-blue?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
-![Tests](https://img.shields.io/badge/Tests-Passed-blue?style=flat-square)
+![Tests](https://img.shields.io/badge/Tests-Passed_(53/53)-blue?style=flat-square)
 ![Language](https://img.shields.io/badge/Python-blue?style=flat-square&logo=python&logoColor=yellow)
 
 <i>Please read <span style="color: red;">Further Informations</span> before using the provided code!</i>
@@ -105,7 +105,7 @@ If you have any other modes you want to be implemented or there are any errors, 
             
         - $\textsf{\color{aqua}Version 1.1.3}$
 
-            - File structure system changed
+            - File structure changed
 
         - $\textsf{\color{aqua}Version 1.1.4}$
         
@@ -114,3 +114,7 @@ If you have any other modes you want to be implemented or there are any errors, 
         - $\textsf{\color{aqua}Version 1.1.5}$
         
             - Changelog to README
+         
+        - $\textsf{\color{aqua}Version 1.1.6}$
+        
+            - Added a test count to README
