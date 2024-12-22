@@ -1,6 +1,6 @@
 # -------------------- IMPORTS -------------------- #
 import unittest
-from Essentials.xoring import xor
+from src.Essentials.xoring import xor
 
 
 # ######################### PASSED ######################### #

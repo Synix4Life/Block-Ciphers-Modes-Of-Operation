@@ -1,7 +1,7 @@
 # -------------------- IMPORTS -------------------- #
 import unittest
 from decryption_modes import *
-from ..Essentials.converter import hex_to_ascii
+from src.Essentials.converter import hex_to_ascii
 
 
 # ######################### PASSED ######################### #

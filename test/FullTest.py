@@ -1,7 +1,7 @@
 # -------------------- IMPORTS -------------------- #
 import unittest
-import decryption_modes
-import encryption_modes
+import src.decryption_modes as decryption_modes
+import src.encryption_modes as encryption_modes
 
 
 # ######################### PASSED ######################### #

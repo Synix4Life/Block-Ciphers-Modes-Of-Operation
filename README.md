@@ -2,7 +2,7 @@
 
 ---
 
-![Version](https://img.shields.io/badge/Version-1.1.6-blue?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.2.0-blue?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 ![Tests](https://img.shields.io/badge/Tests-Passed_(53/53)-blue?style=flat-square)
 ![Language](https://img.shields.io/badge/Python-blue?style=flat-square&logo=python&logoColor=yellow)
@@ -21,9 +21,9 @@ They can be used to encrypt data with a key and, depending on the mode, also wit
 
 ```python
 #Encrpytion and decryption using CBC
-from encryption_modes import cbc_encryption
-from decryption_modes import cbc_decryption
-from Essentials.converter import hex_to_ascii
+from src.encryption_modes import cbc_encryption
+from src.decryption_modes import cbc_decryption
+from src.Essentials.converter import hex_to_ascii
 
 encrypted = cbc_encryption("Plaintext", "Key", 0, 3)
 
@@ -78,43 +78,30 @@ If you have any other modes you want to be implemented or there are any errors, 
 ## Changelog
 
 - $\textsf{\color{aqua}Version 1.0.0}$
-
-    - Basic encryption and decryption featuring the modes:
-        - CBC
-        - CTR
-        - ECB
-  
-    - Necessary dependencies
-
-    - $\textsf{\color{aqua}Version 1.1.0}$
-
-        - Docstring fix
-        - Added direct ASCII output from the methods
-        - UPLOADED TESTS
- 
-        - $\textsf{\color{aqua}Version 1.1.1}$
-    
-            - \_\_pycache\_\_ added to .gitignore
-
-        - $\textsf{\color{aqua}Version 1.1.2}$
-
-            - File design (naming Imports and Methods)
-            - README.txt example implementation extension
-            - Testing Encryption Exceptions
-            - Small fixes
-            
-        - $\textsf{\color{aqua}Version 1.1.3}$
-
-            - File structure changed
-
-        - $\textsf{\color{aqua}Version 1.1.4}$
-        
-            - Added Example Outputs
-
-        - $\textsf{\color{aqua}Version 1.1.5}$
-        
-            - Changelog to README
-         
-        - $\textsf{\color{aqua}Version 1.1.6}$
-        
-            - Added a test count to README
+  - Basic encryption and decryption featuring the modes:
+    - CBC
+    - CTR
+    - ECB
+  - Necessary dependencies
+  - $\textsf{\color{aqua}Version 1.1.0}$
+    - Docstring fix
+    - Added direct ASCII output from the methods
+    - UPLOADED TESTS
+    - $\textsf{\color{aqua}Version 1.1.1}$
+      - \_\_pycache\_\_ added to .gitignore
+    - $\textsf{\color{aqua}Version 1.1.2}$
+      - File design (naming Imports and Methods)
+      - README.txt example implementation extension
+      - Testing Encryption Exceptions
+      - Small fixes
+    - $\textsf{\color{aqua}Version 1.1.3}$
+      - File structure changed
+    - $\textsf{\color{aqua}Version 1.1.4}$
+      - Added Example Outputs
+    - $\textsf{\color{aqua}Version 1.1.5}$
+      - Changelog to README
+    - $\textsf{\color{aqua}Version 1.1.6}$
+      - Added a test count to README
+  - $\textsf{\color{aqua}Version 1.2.0}$
+    - Converted the directories to packages
+    - Moved the tests to a dedicated folder

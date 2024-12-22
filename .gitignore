@@ -3,10 +3,10 @@
 /src/.idea/
 /src/Essentials/.idea/
 /src/Essentials/__pycache__/
-/src/UnitTest/__pycache__/
-/src/UnitTest/.idea/
-/src/UnitTest/Essentials/__pycache__/
-/src/UnitTest/Essentials/.idea/
+/test/__pycache__/
+/test/.idea/
+/test/Essentials/__pycache__/
+/test/Essentials/.idea/
 /__pycache__/
 /.idea/
 
