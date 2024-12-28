@@ -1,10 +1,9 @@
 # -------------------- IMPORTS -------------------- #
-import Essentials.converter as converter
+from Essentials.converter import ascii_to_binary, binary_to_hex, hex_to_ascii
 from Essentials.xoring import xor
-import Essentials.iv_actions as iv_actions
-import Essentials.miscellaneous as misc
+from Essentials.iv_actions import *
+from Essentials.miscellaneous import *
 from preprocessing import preprocess
-import math
 
 
 # -------------------- METHODS -------------------- #
@@ -22,10 +21,8 @@ def cbc_encryption(plaintext: str, key: str, iv: int, block_size: int = 8, retur
     :raises ValueError: If block_size isn't dividable by 8
     """
     preprocess(key, block_size, is_binary_step)
-    binary_plaintext = converter.ascii_to_binary(plaintext)
-    binary_key = converter.ascii_to_binary(key)
-    binary_iv = iv_actions.extend_iv(iv, block_size*(1 if is_binary_step else 8))
-    divided_text = misc.divide(binary_plaintext, int(block_size)*(1 if is_binary_step else 8))
+    binary_iv = extend_iv(iv, block_size*(1 if is_binary_step else 8))
+    divided_text = divide(ascii_to_binary(plaintext), int(block_size)*(1 if is_binary_step else 8))
     resulting_blocks = []
 
     for i in range(len(divided_text)):
@@ -33,12 +30,10 @@ def cbc_encryption(plaintext: str, key: str, iv: int, block_size: int = 8, retur
             tmp = xor(divided_text[i], binary_iv)
         else:
             tmp = xor(divided_text[i], resulting_blocks[i - 1])
-        resulting_blocks.append(xor(tmp, binary_key))
+        resulting_blocks.append(xor(tmp, ascii_to_binary(key)))
 
-    hex_result = misc.leading_zeros(resulting_blocks)
-    if return_as_ascii:
-        return converter.hex_to_ascii(hex_result + converter.binary_to_hex(''.join(resulting_blocks)))
-    return hex_result + converter.binary_to_hex(''.join(resulting_blocks))
+    hex_result = leading_zeros(resulting_blocks) + binary_to_hex(''.join(resulting_blocks))
+    return hex_result if not return_as_ascii else hex_to_ascii(hex_result)
 
 
 def ctr_encryption(plaintext: str, key: str, iv: int, block_size: int = 8, return_as_ascii: bool = False, is_binary_step: bool = False) -> str:
@@ -55,21 +50,17 @@ def ctr_encryption(plaintext: str, key: str, iv: int, block_size: int = 8, retur
     :raises ValueError: If block_size isn't dividable by 8
     """
     preprocess(key, block_size, is_binary_step)
-    binary_plaintext = converter.ascii_to_binary(plaintext)
-    binary_key = converter.ascii_to_binary(key)
-    extended_iv = iv_actions.extend_iv(iv, block_size*(1 if is_binary_step else 8))
-    divided_text = misc.divide(binary_plaintext, int(block_size)*(1 if is_binary_step else 8))
+    extended_iv = extend_iv(iv, block_size*(1 if is_binary_step else 8))
+    divided_text = divide(ascii_to_binary(plaintext), int(block_size)*(1 if is_binary_step else 8))
     resulting_blocks = []
 
     for i in range(len(divided_text)):
-        extended_iv = iv_actions.increment_iv(extended_iv)
-        encrypted = xor(extended_iv, binary_key)
+        extended_iv = increment_iv(extended_iv)
+        encrypted = xor(extended_iv, ascii_to_binary(key))
         resulting_blocks.append(xor(divided_text[i], encrypted))
 
-    hex_result = misc.leading_zeros(resulting_blocks)
-    if return_as_ascii:
-        return converter.hex_to_ascii(hex_result + converter.binary_to_hex(''.join(resulting_blocks)))
-    return hex_result + converter.binary_to_hex(''.join(resulting_blocks))
+    hex_result = leading_zeros(resulting_blocks) + binary_to_hex(''.join(resulting_blocks))
+    return hex_result if not return_as_ascii else hex_to_ascii(hex_result)
 
 
 def ecb_encryption(plaintext: str, key: str, block_size: int = 8, return_as_ascii: bool = False, is_binary_step: bool = False) -> str:
@@ -85,13 +76,11 @@ def ecb_encryption(plaintext: str, key: str, block_size: int = 8, return_as_asci
     :raises ValueError: If block_size isn't dividable by 8
     """
     preprocess(key, block_size, is_binary_step)
-    binary_plaintext = converter.ascii_to_binary(plaintext)
-    binary_key = converter.ascii_to_binary(key)
-    divided_text = misc.divide(binary_plaintext, int(block_size)*(1 if is_binary_step else 8))
+    divided_text = divide(ascii_to_binary(plaintext), int(block_size)*(1 if is_binary_step else 8))
     resulting_blocks = []
+
     for block in divided_text:
-        resulting_blocks.append(xor(block, binary_key))
-    hex_result = misc.leading_zeros(resulting_blocks)
-    if return_as_ascii:
-        return converter.hex_to_ascii(hex_result + converter.binary_to_hex(''.join(resulting_blocks)))
-    return hex_result + converter.binary_to_hex(''.join(resulting_blocks))
+        resulting_blocks.append(xor(block, ascii_to_binary(key)))
+
+    hex_result = leading_zeros(resulting_blocks) + binary_to_hex(''.join(resulting_blocks))
+    return hex_result if not return_as_ascii else hex_to_ascii(hex_result)

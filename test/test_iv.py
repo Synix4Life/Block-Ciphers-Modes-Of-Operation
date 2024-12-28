@@ -32,6 +32,9 @@ class TestIV(unittest.TestCase):
         self.assertEqual("10101010", increment_iv("10101001"))
 
     def test_increment_iv_4(self):
+        self.assertEqual("1", increment_iv("0"))
+
+    def test_increment_iv_ERROR(self):
         self.assertRaises(OverflowError, lambda: increment_iv("11111111"))
 
 

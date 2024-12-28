@@ -16,9 +16,6 @@ def increment_iv(iv: str) -> str:
     :return: IV + 1 in a binary string
     :raises OverflowError: If there occurs an overflow
     """
-#    decimal = int(iv, 2)
- #   incremented = decimal + 1
-  #  binary = bin(incremented)[2:]
     binary = bin(int(iv, 2) +1)[2:]
     if len(binary) > len(iv):
         raise OverflowError("IV Overflow")

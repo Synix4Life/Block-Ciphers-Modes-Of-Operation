@@ -1,11 +1,10 @@
 # -------------------- IMPORTS -------------------- #
-import Essentials.converter as converter
+from Essentials.converter import ascii_to_binary, hex_to_ascii, binary_to_hex
 from Essentials.xoring import xor
-import Essentials.iv_actions as iv_actions
-import Essentials.miscellaneous as misc
+from Essentials.iv_actions import extend_iv
+from Essentials.miscellaneous import *
 from preprocessing import preprocess
 from encryption_modes import ecb_encryption, ctr_encryption
-import math
 
 
 # -------------------- METHODS -------------------- #
@@ -23,23 +22,19 @@ def cbc_decryption(ciphertext: str, key: str, iv: int, block_size: int = 8, retu
     :raises ValueError: If block_size isn't dividable by 8
     """
     preprocess(key, block_size, is_binary_step)
-    binary_plaintext = converter.ascii_to_binary(ciphertext)
-    binary_key = converter.ascii_to_binary(key)
-    binary_iv = iv_actions.extend_iv(iv, block_size*(1 if is_binary_step else 8))
-    divided_text = misc.divide(binary_plaintext,  int(block_size)*(1 if is_binary_step else 8))
+    binary_iv = extend_iv(iv, block_size*(1 if is_binary_step else 8))
+    divided_text = divide(ascii_to_binary(ciphertext),  int(block_size)*(1 if is_binary_step else 8))
     resulting_blocks = []
 
     for i in range(len(divided_text)):
-        tmp = xor(divided_text[i], binary_key)
+        tmp = xor(divided_text[i], ascii_to_binary(key))
         if i == 0:
             resulting_blocks.append(xor(tmp, binary_iv))
         else:
             resulting_blocks.append(xor(tmp, divided_text[i-1]))
 
-    hex_result = misc.leading_zeros(resulting_blocks)
-    if return_as_ascii:
-        return converter.hex_to_ascii(hex_result + converter.binary_to_hex(''.join(resulting_blocks)))
-    return hex_result + converter.binary_to_hex(''.join(resulting_blocks))
+    hex_result = leading_zeros(resulting_blocks) + binary_to_hex(''.join(resulting_blocks))
+    return hex_result if not return_as_ascii else hex_to_ascii(hex_result)
 
 
 def ctr_decryption(ciphertext: str, key: str, iv: int, block_size: int = 8, return_as_ascii: bool = False, is_binary_step: bool = False) -> str:
@@ -60,7 +55,7 @@ def ctr_decryption(ciphertext: str, key: str, iv: int, block_size: int = 8, retu
 
 def ecb_decryption(ciphertext: str, key: str, block_size: int = 8, return_as_ascii: bool = False, is_binary_step: bool = False) -> str:
     """
-    The method to convert a ECB-encrypted ciphertext into an decrypted plaintext in hex, using a given key and block_size
+    The method to convert an ECB-encrypted ciphertext into a decrypted plaintext in hex, using a given key and block_size
     :param ciphertext: The ECB-encrypted ciphertext to decrypt
     :param key: The key, with which the ciphertext shall be decrypted
     :param block_size: Block size to decrypt, can be added as binary step or ASCII character steps
