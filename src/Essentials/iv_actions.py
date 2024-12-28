@@ -6,8 +6,7 @@ def extend_iv(iv: int, block_size: int = 8) -> str:
     :return: The extended IV as a string
     """
     binary_iv = bin(iv)[2:]
-    num_of_zeros = block_size - len(binary_iv)
-    return '0' * num_of_zeros + binary_iv
+    return '0' * (block_size - len(binary_iv)) + binary_iv
 
 
 def increment_iv(iv: str) -> str:
@@ -17,9 +16,10 @@ def increment_iv(iv: str) -> str:
     :return: IV + 1 in a binary string
     :raises OverflowError: If there occurs an overflow
     """
-    decimal = int(iv, 2)
-    incremented = decimal + 1
-    binary = bin(incremented)[2:]
+#    decimal = int(iv, 2)
+ #   incremented = decimal + 1
+  #  binary = bin(incremented)[2:]
+    binary = bin(int(iv, 2) +1)[2:]
     if len(binary) > len(iv):
         raise OverflowError("IV Overflow")
     return '0' * (len(iv) - len(binary)) + binary

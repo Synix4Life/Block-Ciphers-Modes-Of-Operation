@@ -25,6 +25,9 @@ class TestEncryption(unittest.TestCase):
     def test_CBC_1(self):
         self.assertEqual("0C0607", cbc_encryption("TRY", "X", 0, 1))
 
+    def test_CBC_2(self):
+        self.assertEqual("0C0607", cbc_encryption("TRY", "X", 0, 8, False, True))
+
     # -------------------- CTR -------------------- #
     def test_CTR_1(self):
         self.assertEqual("1E2C3B3B", ctr_encryption("Test", "K", 0, 1))

@@ -7,9 +7,5 @@ def xor(value1: str, value2: str) -> str:
     :raises ValueError: If value1 is larger then value2
     """
     if len(value1) > len(value2):
-        raise ValueError("Value1 shouldn't be longer then value2")
-    array = []
-    for i in range(len(value1)):
-        var = int(value1[i]) ^ int(value2[i])
-        array.append(str(var))
-    return ''.join(array)
+        raise ValueError(f"Value1 shouldn't be longer then value2: Got value1 {value1}, value2 {value2}")
+    return ''.join([str(int(value1[i]) ^ int(value2[i])) for i in range(len(value1))])

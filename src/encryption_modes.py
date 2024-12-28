@@ -3,6 +3,7 @@ import Essentials.converter as converter
 from Essentials.xoring import xor
 import Essentials.iv_actions as iv_actions
 import Essentials.miscellaneous as misc
+from preprocessing import preprocess
 import math
 
 
@@ -20,18 +21,11 @@ def cbc_encryption(plaintext: str, key: str, iv: int, block_size: int = 8, retur
     :raises AttributeError: If the key isn't from the same size as the value of block_size is
     :raises ValueError: If block_size isn't dividable by 8
     """
-    if is_binary_step:
-        block_size = block_size / 8
-        if not block_size == math.floor(block_size):
-            raise ValueError("Block_size should be dividable by 8")
-    if not len(key) == block_size:
-        raise AttributeError(f"Key should have block size!\nExpected block size {len(key)}, but got {block_size}."
-                             f"\nDid you forget that there is an IV in CBC Mode :-)? \n"
-                             f"If not, try changing the input block_size or set is_binary_step to true.")
+    preprocess(key, block_size, is_binary_step)
     binary_plaintext = converter.ascii_to_binary(plaintext)
     binary_key = converter.ascii_to_binary(key)
-    binary_iv = iv_actions.extend_iv(iv, block_size*8)
-    divided_text = misc.divide(binary_plaintext, int(block_size)*8)
+    binary_iv = iv_actions.extend_iv(iv, block_size*(1 if is_binary_step else 8))
+    divided_text = misc.divide(binary_plaintext, int(block_size)*(1 if is_binary_step else 8))
     resulting_blocks = []
 
     for i in range(len(divided_text)):
@@ -60,18 +54,11 @@ def ctr_encryption(plaintext: str, key: str, iv: int, block_size: int = 8, retur
     :raises AttributeError: If the key isn't from the same size as the value of block_size is
     :raises ValueError: If block_size isn't dividable by 8
     """
-    if is_binary_step:
-        block_size = block_size / 8
-        if not block_size == math.floor(block_size):
-            raise ValueError("Block_size should be dividable by 8")
-    if not len(key) == block_size:
-        raise AttributeError(f"Key should have block size!\nExpected block size {len(key)}, but got {block_size}."
-                             f"\n Did you forget that there is an IV in CTR Mode :-)? \n"
-                             f"Try changing the input block_size or set is_binary_step to true.")
+    preprocess(key, block_size, is_binary_step)
     binary_plaintext = converter.ascii_to_binary(plaintext)
     binary_key = converter.ascii_to_binary(key)
-    extended_iv = iv_actions.extend_iv(iv, block_size*8)
-    divided_text = misc.divide(binary_plaintext, int(block_size)*8)
+    extended_iv = iv_actions.extend_iv(iv, block_size*(1 if is_binary_step else 8))
+    divided_text = misc.divide(binary_plaintext, int(block_size)*(1 if is_binary_step else 8))
     resulting_blocks = []
 
     for i in range(len(divided_text)):
@@ -97,16 +84,10 @@ def ecb_encryption(plaintext: str, key: str, block_size: int = 8, return_as_asci
     :raises AttributeError: If the key isn't from the same size as the value of block_size is
     :raises ValueError: If block_size isn't dividable by 8
     """
-    if is_binary_step:
-        block_size = block_size / 8
-        if not block_size == math.floor(block_size):
-            raise ValueError("Block_size should be dividable by 8")
-    if not len(key) == block_size:
-        raise AttributeError(f"Key should have block size!\nExpected block size {len(key)}, but got {block_size}."
-                             f"\nTry changing the input block_size or set is_binary_step to true.")
+    preprocess(key, block_size, is_binary_step)
     binary_plaintext = converter.ascii_to_binary(plaintext)
     binary_key = converter.ascii_to_binary(key)
-    divided_text = misc.divide(binary_plaintext, int(block_size)*8)
+    divided_text = misc.divide(binary_plaintext, int(block_size)*(1 if is_binary_step else 8))
     resulting_blocks = []
     for block in divided_text:
         resulting_blocks.append(xor(block, binary_key))
