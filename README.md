@@ -1,8 +1,8 @@
-<h1>Block Cipher Modes Of Operation</h1>
+# Block Cipher Modes Of Operation
 
 ---
 
-![Version](https://img.shields.io/badge/Version-1.3.1-blue?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.3.2-blue?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 ![Tests](https://img.shields.io/badge/Tests-Passed_(55/55)-blue?style=flat-square)
 ![Language](https://img.shields.io/badge/Python-blue?style=flat-square&logo=python&logoColor=yellow)
@@ -12,12 +12,12 @@
 <a name="section-two"></a>
 
 ---
-<h2>Description</h2>
+## Description
 The Block Cipher Modes of Operation belongs to the group of symmetric cryptography. 
 
 They can be used to encrypt data with a key and, depending on the mode, also with other parameters.
 
-<h3>Example Implementation </h3>
+### Example Implementation
 
 ```python
 #Encrpytion and decryption using CBC
@@ -45,16 +45,19 @@ print(decrypted)
 ```
 
 ---
-<h2>Python requirements</h2>
+
+## Python requirements
 <i>None</i>
+
 ---
-<h2>Using this implementation</h2>
+
+## Using this implementation
 To use the provided methods, just clone the source code via GitHub and start implementing it in youre own programs.
 
 The provided code supports the file Example.py with predefined example implementations.
 
 ---
-<h2>Further information</h2>
+## Further information
 
 This is just an implementation of the Block Cipher Modes of Operation. 
 
@@ -70,7 +73,7 @@ Please use other encryption librarys with proven correctness for encrypting your
 
 ---
 
-<h3>Miscellaneous</h3>
+### Miscellaneous
 If you have any other modes you want to be implemented or there are any errors, please feel free to fix them yourself or contact me! :fire:
 
 ---
@@ -110,3 +113,5 @@ If you have any other modes you want to be implemented or there are any errors, 
     - Added preprocessing to simplify code
     - $\textsf{\color{aqua}Version 1.3.1}$
       - Further Cleanup
+    - $\textsf{\color{aqua}Version 1.3.2}$
+      - Small README changes
